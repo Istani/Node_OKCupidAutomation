@@ -23,16 +23,14 @@ var q = new queue(
   { afterProcessDelay: 1000 * 60 }
 );
 
-var OKCupid = require('okcupidjs')
-var okc = new OKCupid()
+//var OKCupid = require('okcupidjs')
+var OKCupid = require('okcupidtest');
+var Promise = require('bluebird');
+//var okc = new OKCupid()
+var okc = Promise.promisifyAll(new OKCupid());
 
-okc.login(process.env.LOGIN, process.env.PASS, function(err, res, body) {
-  console.log(body);
-  if (err) {
-    console.log('Login Error');
-    console.error(err);
-    process.exit(1);
-    return;
-  }
-  console.log("Login Successfull?!");
-});
+async function login() {
+  await okc.loginAsync(process.env.LOGIN, process.env.PASS);
+  console.log("Login Done?!");
+};
+login();

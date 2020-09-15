@@ -19,7 +19,8 @@
   "homepage": "https://github.com/Istani/Node_OKCupidAutomation#readme",
   "dependencies": {
     "better-queue": "^3.8.10",
+    "bluebird": "^3.7.2",
     "dotenv": "^8.2.0",
-    "okcupidjs": "^1.1.6"
+    "okcupidtest": "git+https://github.com/sheshankdebugged/sheshanktest.git"
   }
 }
